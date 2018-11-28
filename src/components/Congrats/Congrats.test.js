@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { findByTestAttr, checkProps } from "./testUtils";
-import Congrats from "../components/Congrats";
+import { findByTestAttr, checkProps } from "../../testUtils";
+import Congrats from "./Congrats";
 
 const defaultProps = { success: false };
 /**
