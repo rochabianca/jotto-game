@@ -90,7 +90,7 @@ describe('redux props', () => {
         guessWord: guessWordMock
       };
       // set up app component with guessWordMock as the guessWordProp
-      const wrapper = shallow(<UnconnectedInput {...props} />);
+      wrapper = shallow(<UnconnectedInput {...props} />);
 
       // add value to input box
       wrapper.instance().inputBox.current = { value: guessedWord };
@@ -108,6 +108,11 @@ describe('redux props', () => {
     test('calls `guessWord` with input value as argument', () => {
       const guessWordArg = guessWordMock.mock.calls[0][0];
       expect(guessWordArg).toBe(guessedWord);
+    });
+
+    test('input box clears on submit', () => {
+      const inputBoxValue = wrapper.instance().inputBox.current.value;
+      expect(inputBoxValue).toBe('');
     });
   });
 });
